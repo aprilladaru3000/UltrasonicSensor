@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 221.4, "left": -173.4, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic",
+      "top": 78.3,
+      "left": -109.7,
+      "attrs": { "distance": "180" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 64, "left": 188, "attrs": { "pins": "i2c" } },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 226.8,
+      "left": 243.8,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": 226.8,
+      "left": 291.8,
+      "attrs": { "color": "yellow" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 226.8,
+      "left": 339.8,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 312,
+      "left": 229.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 312,
+      "left": 277.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 312,
+      "left": 325.85,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "uno:5V", "ultrasonic:VCC", "red", [ "v16", "h-96", "*", "v12" ] ],
+    [ "ultrasonic:GND", "uno:GND.3", "black", [ "v17.87", "h76.6", "v268.8", "h-153.6" ] ],
+    [ "ultrasonic:TRIG", "uno:7", "blue", [ "v0" ] ],
+    [ "ultrasonic:ECHO", "uno:8", "green", [ "v96", "h-20" ] ],
+    [ "lcd1:GND", "uno:GND.3", "black", [ "h-67.2", "v316.8" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h-67.2", "v-95.9", "h-316.8", "v441.6", "h172.8" ] ],
+    [ "lcd1:SDA", "uno:A4.2", "green", [ "h-38.4", "v96.2", "h-220.8" ] ],
+    [ "lcd1:SCL", "uno:A5.2", "green", [ "h-57.6", "v96.3", "h-220.8" ] ],
+    [ "led1:C", "r1:1", "green", [ "v0" ] ],
+    [ "led2:C", "r2:1", "green", [ "v0" ] ],
+    [ "led3:C", "r3:1", "green", [ "v0" ] ],
+    [ "r1:2", "uno:GND.3", "green", [ "h9.6", "v133.2", "h-259.2" ] ],
+    [ "r2:2", "uno:GND.3", "green", [ "h-9.6", "v152.4", "h-288" ] ],
+    [ "r3:2", "uno:GND.3", "green", [ "h-9.6", "v171.6", "h-336" ] ],
+    [ "led1:A", "uno:3", "green", [ "v0" ] ],
+    [ "led2:A", "uno:4", "green", [ "v-57.6", "h-278.4" ] ],
+    [ "led3:A", "uno:5", "green", [ "v-76.8", "h-316.8" ] ]
+  ],
+  "dependencies": {}
+}
